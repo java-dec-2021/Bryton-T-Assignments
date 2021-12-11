@@ -52,4 +52,7 @@ public class Basics {
         }
         System.out.println(y);
     }
+
+    //Averages entries in an Array
+    public void 
 }
