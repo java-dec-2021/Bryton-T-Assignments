@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+/Users/brytontateishi/Desktop/Java-Dec-Bryton/Bryton-T-Assignments-master/03-java-spring/02-spring-data-i/03-languages/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1584504083.index
+/Languages/src/main/java
+/Users/brytontateishi/Desktop/Java-Dec-Bryton/Bryton-T-Assignments-master/03-java-spring/02-spring-data-i/03-languages/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2614714721.index
+/Languages/src/main/java

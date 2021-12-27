@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Languages</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td>Creator</td>
+				<td>Version</td>
+				<td>action</td>
+			</tr>
+		</thead>
+		<tbody>
+		<!-- For Loop here -->
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><a>delete</a> <a>edit</a></td>
+			</tr>
+		<!-- End For Loop here -->
+		</tbody>
+	</table>
+	
+	<form action="">
+		<p>
+			<label>Name</label>
+			<input type="text">
+		</p>
+		<p>
+			<label>Creator</label>
+			<input type="text">
+		</p>
+		<p>
+			<label>Version</label>
+			<input type="text">
+		</p>
+		<input type="button" value="Submit">
+	</form>
+</body>
+</html>

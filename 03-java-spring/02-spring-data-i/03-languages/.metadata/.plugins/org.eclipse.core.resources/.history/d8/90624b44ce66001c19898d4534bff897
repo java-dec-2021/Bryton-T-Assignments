@@ -1,0 +1,21 @@
+package com.bryton.languages.services;
+
+import org.springframework.stereotype.Service;
+
+import com.bryton.languages.repositories.LanguageRepository;
+
+@Service
+public class LanguageService {
+	
+	private LanguageRepository languageRepo;
+	
+	public LanguageService(LanguageRepository languageRepo) {
+		this.languageRepo = languageRepo;
+	}
+	
+	//Get all languages
+	public List<Language> getAllLanguages() {
+		return this.languageRepo.findAll();
+	}
+
+}

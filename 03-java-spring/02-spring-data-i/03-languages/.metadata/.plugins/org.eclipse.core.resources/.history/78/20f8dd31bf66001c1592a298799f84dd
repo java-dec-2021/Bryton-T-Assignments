@@ -1,0 +1,5 @@
+package com.bryton.languages.controllers;
+
+public class HomeController {
+
+}

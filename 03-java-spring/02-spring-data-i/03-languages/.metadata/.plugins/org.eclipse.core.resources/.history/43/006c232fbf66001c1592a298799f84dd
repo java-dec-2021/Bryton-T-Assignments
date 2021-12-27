@@ -1,0 +1,5 @@
+package com.bryton.languages.models;
+
+public class Language {
+
+}
