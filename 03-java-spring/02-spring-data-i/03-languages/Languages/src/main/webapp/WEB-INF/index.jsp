@@ -22,9 +22,9 @@
 			<tr>
 				<td><a href="/languages/${language.id}"><c:out value="${language.name}"></c:out></a></td>
 				<td><c:out value="${language.creator}"></c:out></td>
-				<td><c:out value="${langage.version}"></c:out></td>
+				<td><c:out value="${language.version}"></c:out></td>
 				<td>
-					<a href="/languages/${language.id}/deletet">delete</a>
+					<a href="/delete/${language.id}">delete</a>
 					<a href="/languages/${language.id}/edit">edit</a>
 				</td>
 			</tr>
@@ -45,7 +45,7 @@
 			<label for="version">Version</label>
 			<input type="text" id="version" name="version">
 		</p>
-		<input type="button" value="Submit">
+		<input type="submit" value="Submit">
 	</form>
 </body>
 </html>

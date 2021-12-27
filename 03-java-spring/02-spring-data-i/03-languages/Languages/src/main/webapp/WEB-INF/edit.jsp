@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${language.id}</title>
+<title><c:out value="${language.name}"><</c:out></title>
 </head>
 <body>
 	<p>
 		<a href="/delete/${language.id}">Delete</a>
-		<a href="/languages">Dashboard</a>
+		<a href="/">Dashboard</a>
 	</p>
 	<form action="/languages" method = "POST">
 		<p>
@@ -25,7 +25,7 @@
 			<label for="version">Version</label>
 			<input type="text" id="version" name="version">
 		</p>
-		<input type="button" value="Submit">
+		<input type="submit" value="Submit">
 	</form>
 </body>
 </html>

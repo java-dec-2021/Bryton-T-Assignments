@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${language.name}</title>
+<title><c:out value="${language.name}"><</c:out></title>
 </head>
 <body>
-	<a href="/languages">Dashboard</a>
+	<a href="/">Dashboard</a>
 	<p>Name: <c:out value="${language.name}"></c:out></p>
 	<p>Creator: <c:out value="${language.creator}"></c:out></p>
 	<p>Version: <c:out value="${language.version}"></c:out></p>
