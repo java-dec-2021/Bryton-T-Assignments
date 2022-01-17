@@ -1,5 +1,0 @@
-package com.bryton.languages.repositories;
-
-public interface LanguageRepository {
-
-}
