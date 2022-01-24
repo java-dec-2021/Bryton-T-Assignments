@@ -21,5 +21,9 @@ public class NinjaService {
 	public void save(Ninja ninja) {
 		ninjaRepo.save(ninja);
 	}
+	
+	public void delete(Long id) {
+		ninjaRepo.deleteById(id);
+	}
 
 }

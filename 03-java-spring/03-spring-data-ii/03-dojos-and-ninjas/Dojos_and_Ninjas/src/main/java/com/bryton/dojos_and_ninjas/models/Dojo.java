@@ -26,7 +26,7 @@ public class Dojo {
     private Date created_at;
     private Date updated_at;
     @OneToMany(mappedBy="dojo", fetch=FetchType.LAZY)
-    private List<Ninja> ninja;
+    private List<Ninja> ninjas;
 
 	public Dojo() {
 		super();

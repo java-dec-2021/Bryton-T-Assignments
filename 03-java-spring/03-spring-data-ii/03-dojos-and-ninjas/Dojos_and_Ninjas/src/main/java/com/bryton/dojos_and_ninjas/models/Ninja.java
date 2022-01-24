@@ -25,7 +25,6 @@ public class Ninja {
 	private String first_name;
     private String last_name;
     private int age;
-    private int dojo_id;
     @Column(updatable=false)
     private Date created_at;
     private Date updated_at;
@@ -70,13 +69,13 @@ public class Ninja {
 		this.age = age;
 	}
 
-	public int getDojo_id() {
-		return dojo_id;
-	}
-
-	public void setDojo_id(int dojo_id) {
-		this.dojo_id = dojo_id;
-	}
+//	public int getDojo_id() {
+//		return dojo_id;
+//	}
+//
+//	public void setDojo_id(int dojo_id) {
+//		this.dojo_id = dojo_id;
+//	}
 
 	public Date getCreated_at() {
 		return created_at;

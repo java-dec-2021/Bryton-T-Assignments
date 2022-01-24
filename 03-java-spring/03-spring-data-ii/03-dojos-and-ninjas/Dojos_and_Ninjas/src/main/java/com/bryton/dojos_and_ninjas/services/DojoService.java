@@ -28,8 +28,6 @@ public class DojoService {
 		return dojoRepo.save(dojo);
 	}
 	
-	//Update language
-	
 	//Delete dojo
 	public void delete(Long id) {
 		dojoRepo.deleteById(id);
