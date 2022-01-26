@@ -12,8 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 //import javax.validation.constraints.NotNull;
 //import javax.validation.constraints.Size;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="products")
@@ -21,14 +23,12 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-//	@NotNull
-//	@Size(min = 3, max = 20, message = "Product name must be between 3 and 20 characters.")
+	@NotNull
+	@Size(min = 3, max = 20, message = "Product name must be between 3 and 20 characters.")
 	private String name;
 	private String description;
 	private float price;
-	@Column(updatable = false)
-//	private Date created_at;
-//	private Date updated_at;
+
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -36,8 +36,7 @@ public class Product {
         joinColumns = @JoinColumn(name = "product_id"), 
         inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    
-	private List<Category> categorizedProducts;
+	private List<Category> categories;
     
 	public Product() {
 		super();
@@ -80,10 +79,10 @@ public class Product {
 //		this.updated_at = updated_at;
 //	}
 	public List<Category> getCategories() {
-		return categorizedProducts;
+		return categories;
 	}
 	public void setCategories(List<Category> categories) {
-		this.categorizedProducts = categories;
+		this.categories = categories;
 	}
 
 }

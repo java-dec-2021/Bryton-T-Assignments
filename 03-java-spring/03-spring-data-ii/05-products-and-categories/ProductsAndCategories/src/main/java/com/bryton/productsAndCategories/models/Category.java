@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 //import javax.validation.constraints.NotNull;
 //import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="categories")
@@ -20,8 +22,8 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @NotNull
-//    @Size(min=3, max= 20, message="Category name must be between 3 and 20 characters.")
+    @NotNull
+    @Size(min=3, max= 20, message="Category name must be between 3 and 20 characters.")
     private String name;
 //    private Date created_at;
 //    private Date updated_at;

@@ -1,8 +1,11 @@
 package com.bryton.productsAndCategories.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,29 +29,49 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index(Model model) {
 		model.addAttribute("Products", this.ProductService.getAllProducts());
+		model.addAttribute("Category", this.CategoryService.getAllCategories());
 		return "index.jsp";
 	}
 	
 	@GetMapping("/products/new")
-	public String productsHome() {
+	public String productsHome(@ModelAttribute("newProduct") Product product) {
 		return "newProduct.jsp";
 	}
+	
 	@PostMapping("/products/new")
-	public String createProduct(@ModelAttribute("product") Product product) {
-		this.ProductService.create(product);
+	public String create(@Valid @ModelAttribute("newProduct") Product product, BindingResult result) {
+		if(result.hasErrors()) {
+			return "newProduct.jsp";
+		}
+		else {
+			 this.ProductService.createProduct(product);
+			 return "redirect:/";
+		}
+	}
+	
+	@PostMapping("/products/delete/{id}")
+	public String deleteProduct(@PathVariable("id") Long id) {
+		this.ProductService.deleteProductById(id);
 		return "redirect:/";
 	}
-
+	
 	@GetMapping("/products/{id}")
-	public String addCategoryToProduct(@PathVariable("id") Long productId, Model model) {
-		model.addAttribute("product",ProductService.findById(productId));
+	public String productPage(@PathVariable("id") Long productId, Model model) {
+		model.addAttribute("product",ProductService.findProductById(productId));
 		model.addAttribute("categories", CategoryService.findAll());
 		return "productPage.jsp";
 	}
+	
 	@PostMapping("/products/{id}")
-	public String createCategory( @PathVariable ("id") Long productId, Model model, @RequestParam("category") Long categoryId ) {
+	public String addCategoryToProduct(@PathVariable ("id") Long productId, Model model, @RequestParam("category") Long categoryId ) {
 		ProductService.addCategoryToProduct(categoryId,productId);
-		return "redirect:/{id}";
+		return "redirect:/";
+	}
+	
+	@PostMapping("/products/{id}/remove")
+	public String removeCategoryToProduct(@PathVariable ("id") Long productId, Model model, @RequestParam("category") Long categoryId ) {
+		ProductService.removeCategoryToProduct(categoryId,productId);
+		return "redirect:/";
 	}
 	
 	@GetMapping("/categories/new")
@@ -57,13 +80,13 @@ public class HomeController {
 	}
 	@PostMapping("/categories/new")
 	public String createCategory(@ModelAttribute ("category") Category category){
-		this.CategoryService.create(category);
+		this.CategoryService.createCategory(category);
 		return "redirect:/";
 	}
 	
 	@GetMapping ("/categories/{id}")
 	public String addProductToCategory(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("category", CategoryService.findById(id));
+		model.addAttribute("category", CategoryService.findCategoryById(id));
 		model.addAttribute("products", ProductService.getAllProducts());
 		//model.addAttribute("ListOfCategory", categoryService.findAll());
 		return "categoryDisplay.jsp";

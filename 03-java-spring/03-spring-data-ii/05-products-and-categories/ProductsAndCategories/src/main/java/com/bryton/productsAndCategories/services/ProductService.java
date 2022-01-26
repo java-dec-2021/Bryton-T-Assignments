@@ -25,19 +25,31 @@ public class ProductService {
 	}
 	
 	//create product
-	public Product create(Product product) {
+	public Product createProduct(Product product) {
 		return this.productRepo.save(product);
 	}
 	
+	//delete product by ID
+	public void deleteProductById(Long id) {
+		this.productRepo.deleteById(id);
+	}
+	
 	//find one product
-	public Product findById(Long productId) {
+	public Product findProductById(Long productId) {
 		return productRepo.findById(productId).orElse(null);
 	}
 	
 	public void addCategoryToProduct(Long categoryId, Long productId){
-		Product product = this.findById(productId);
+		Product product = this.findProductById(productId);
 		Category category = categoryRepo.findById(categoryId).get();
 		product.getCategories().add(category);
+		productRepo.save(product);	
+		}
+	
+	public void removeCategoryToProduct(Long categoryId, Long productId){
+		Product product = this.findProductById(productId);
+		Category category = categoryRepo.findById(categoryId).get();
+		product.getCategories().remove(category);
 		productRepo.save(product);	
 		}
 	

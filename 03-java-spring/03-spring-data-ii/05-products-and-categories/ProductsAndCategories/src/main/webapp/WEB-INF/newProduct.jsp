@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,14 +9,24 @@
 </head>
 <body>
 	<h1>New Product</h1>
-	<form action="/products/new" method="post">
-		<label for="name">Name</label>
-		<input type="text" id="name"><br>
-		<label for="description">Description</label>
-		<input type="textarea" rows="3" cols="5" id="description"><br>
-		<label for="price">Price</label>
-		<input type="text" id="price"><br>
-		<input type="submit" value="Create">
-	</form>
+	<form:form action="/products/new" method="post" modelAttribute="newProduct">
+	    <p>
+	        <form:label path="name">Name</form:label>
+	        <form:input path="name"/>
+	        <form:errors path="name" class="text-danger"/>
+	    </p>
+	    <p>
+	        <form:label path="description">Description</form:label>
+	        <form:errors path="description"/>
+	        <form:input path="description"/>
+	    </p>
+	    <p>
+	        <form:label path="price">Price</form:label>
+	        <form:errors path="price"/>
+	        <form:input path="price"/>
+	    </p>
+	    <input type="submit" value="Submit"/>
+	</form:form>  
+
 </body>
 </html>

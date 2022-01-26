@@ -18,21 +18,21 @@ public class CategoryService {
 	private ProductRepository productrepo;
 	
 	//Get me all category
-	public List<Category> getAllProducts(){
+	public List<Category> getAllCategories(){
 		return this.categoryrepo.findAll();
 	}
 	
 	//create product
-		public Category create(Category category) {
+		public Category createCategory(Category category) {
 			return this.categoryrepo.save(category);
 		}
 	
-	public Category findById(Long categoryId) {
+	public Category findCategoryById(Long categoryId) {
 		return categoryrepo.findById(categoryId).orElse(null);
 	}
 	
 	public void addProductToCategory(Long productId, Long categoryId) {
-		Category category = this.findById(categoryId);
+		Category category = this.findCategoryById(categoryId);
 		Product product = productrepo.findById(productId).get();
 		category.getProducts().add(product);
 		categoryrepo.save(category);

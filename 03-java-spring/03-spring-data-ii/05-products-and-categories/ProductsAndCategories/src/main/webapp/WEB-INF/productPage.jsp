@@ -31,8 +31,10 @@
 				</c:forEach>
 			</select>
 			<button class="btn btn-warning">Add</button>
+<!-- Id like to add a button here that implements remove category from the list of categories on a product. perhaps one day... -->
 		</form>
-		
+		<h3>Product Description</h3>
+		<p>${product.description}</p>
 		<p class="mt-5">
 			<a href="/products/new">Create Product</a>
 		</p> 
